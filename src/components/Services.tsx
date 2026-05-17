@@ -2,79 +2,72 @@ import { ArrowUpRight } from 'lucide-react'
 
 const services = [
   {
-    num: '01',
+    id: '01',
     title: 'Staff Augmentation',
-    desc: 'Embed as a senior team member. Daily standups, code reviews, architecture decisions — fully integrated into your workflow.',
-    tags: ['Full-time', 'Part-time', 'Sprint-based'],
+    desc: 'Embed as a senior team member. Daily standups, code reviews, architecture decisions — fully integrated.',
+    modes: ['Full-time', 'Part-time', 'Sprint-based'],
+    rate: 'From $80/hr',
   },
   {
-    num: '02',
+    id: '02',
     title: 'Freelance Delivery',
-    desc: 'End-to-end feature or product builds. From architecture to deployment, with clear milestones and async communication.',
-    tags: ['MVP', 'Feature', 'Integration'],
+    desc: 'End-to-end feature or product builds. From architecture to deployment, with clear milestones.',
+    modes: ['MVP', 'Feature', 'Integration'],
+    rate: 'Fixed or hourly',
   },
   {
-    num: '03',
+    id: '03',
     title: 'AI Integration',
-    desc: 'LLM-powered features, RAG pipelines, agent workflows. Secure AI architecture that respects user privacy.',
-    tags: ['LLMs', 'RAG', 'Agents'],
+    desc: 'LLM-powered features, RAG pipelines, agent workflows. Secure AI that respects user privacy.',
+    modes: ['LLMs', 'RAG', 'Agents'],
+    rate: 'Project-based',
   },
   {
-    num: '04',
-    title: 'Security & Architecture',
-    desc: 'Zero-trust patterns, encryption, compliance. Harden applications from day one, not as an afterthought.',
-    tags: ['Zero-trust', 'OAuth', 'RBAC'],
+    id: '04',
+    title: 'Security Audit',
+    desc: 'Zero-trust patterns, encryption, compliance. Harden applications from day one.',
+    modes: ['Audit', 'Hardening', 'Architecture'],
+    rate: 'From $3k',
   },
 ]
 
 export default function Services() {
   return (
-    <section id="services" className="py-32 md:py-40 px-6 md:px-10">
-      <div className="max-w-7xl mx-auto">
-        {/* Section header */}
-        <div className="flex items-center gap-4 mb-16 reveal">
-          <span className="text-xs uppercase tracking-[0.2em] text-text-muted">02</span>
-          <div className="flex-1 h-px bg-border" />
-          <span className="text-xs uppercase tracking-[0.2em] text-text-muted">Services</span>
+    <section id="services" className="py-24 md:py-32 px-6 md:px-10">
+      <div className="max-w-6xl mx-auto">
+        <div className="flex items-center gap-4 mb-12 reveal">
+          <span className="text-[10px] font-mono text-text-muted uppercase tracking-widest">02</span>
+          <div className="flex-1 hr" />
+          <span className="text-[10px] font-mono text-text-muted uppercase tracking-widest">Services</span>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-px bg-border rounded-2xl overflow-hidden">
-          {services.map((s, i) => (
-            <div
-              key={s.num}
-              className={`reveal group relative bg-bg p-8 md:p-12 hover:bg-surface-raised transition-colors duration-500 ${
-                i === 0 ? 'md:rounded-tl-2xl' : ''
-              } ${i === 1 ? 'md:rounded-tr-2xl' : ''} ${
-                i === 2 ? 'md:rounded-bl-2xl' : ''
-              } ${i === 3 ? 'md:rounded-br-2xl' : ''}`}
-              style={{ transitionDelay: `${i * 100}ms` }}
-            >
-              {/* Number */}
-              <span className="absolute top-8 right-8 text-6xl font-extrabold text-text/[0.04] select-none">
-                {s.num}
-              </span>
-
-              <div className="relative z-10">
-                <div className="flex items-start justify-between mb-6">
-                  <h3 className="text-xl md:text-2xl font-semibold group-hover:accent-text transition-colors duration-300">
-                    {s.title}
-                  </h3>
-                  <ArrowUpRight
-                    size={20}
-                    className="text-text-muted group-hover:text-accent group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300"
-                  />
+        <div className="space-y-px bg-border rounded-lg overflow-hidden">
+          {services.map((s) => (
+            <div key={s.id} className="reveal group bg-bg hover:bg-surface-raised transition-colors duration-300">
+              <div className="grid md:grid-cols-12 gap-4 p-6 md:p-8 items-center">
+                <div className="md:col-span-1">
+                  <span className="text-[10px] font-mono text-text-muted">{s.id}</span>
                 </div>
-
-                <p className="text-text-secondary text-sm leading-relaxed mb-8 max-w-sm">
-                  {s.desc}
-                </p>
-
-                <div className="flex flex-wrap gap-2">
-                  {s.tags.map((tag) => (
-                    <span key={tag} className="tag">
-                      {tag}
-                    </span>
-                  ))}
+                <div className="md:col-span-3">
+                  <h3 className="text-base font-semibold group-hover:accent-text transition-colors">{s.title}</h3>
+                </div>
+                <div className="md:col-span-4">
+                  <p className="text-xs text-text-secondary leading-relaxed">{s.desc}</p>
+                </div>
+                <div className="md:col-span-2">
+                  <div className="flex flex-wrap gap-1.5">
+                    {s.modes.map((m) => (
+                      <span key={m} className="tag">{m}</span>
+                    ))}
+                  </div>
+                </div>
+                <div className="md:col-span-1 text-right">
+                  <span className="text-[10px] font-mono text-text-muted">{s.rate}</span>
+                </div>
+                <div className="md:col-span-1 flex justify-end">
+                  <div className="w-8 h-8 rounded border border-border flex items-center justify-center group-hover:border-accent group-hover:bg-accent group-hover:text-bg transition-all">
+                    <ArrowUpRight size={14} />
+                  </div>
                 </div>
               </div>
             </div>

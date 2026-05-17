@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
 
 const navLinks = [
-  { label: 'About', href: '#about' },
+  { label: 'Proof', href: '#proof' },
   { label: 'Services', href: '#services' },
-  { label: 'Stack', href: '#expertise' },
+  { label: 'Stack', href: '#stack' },
   { label: 'Work', href: '#work' },
 ]
 
@@ -12,82 +12,43 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40)
+    const onScroll = () => setScrolled(window.scrollY > 30)
     window.addEventListener('scroll', onScroll)
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled ? 'glass py-4' : 'bg-transparent py-6'
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-6 md:px-10 flex items-center justify-between">
-        {/* Logo */}
-        <a href="#" className="group flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full border border-border flex items-center justify-center group-hover:border-accent transition-colors duration-300">
-            <span className="text-sm font-bold accent-text">ZA</span>
-          </div>
-          <span className="hidden sm:block text-sm font-medium text-text-secondary group-hover:text-text transition-colors">
-            Zohaib Amir
-          </span>
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'glass py-3' : 'bg-transparent py-5'}`}>
+      <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
+        <a href="#" className="flex items-center gap-2.5">
+          <span className="font-mono text-xs accent-text">$</span>
+          <span className="text-sm font-semibold">zohaib.amir</span>
         </a>
 
-        {/* Desktop nav */}
-        <div className="hidden md:flex items-center gap-10">
+        <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="text-sm text-text-secondary hover:text-text underline-hover transition-colors"
-            >
+            <a key={link.href} href={link.href} className="text-xs text-text-secondary hover:text-text underline-hover transition-colors">
               {link.label}
             </a>
           ))}
-        </div>
-
-        {/* CTA */}
-        <div className="hidden md:block">
-          <a
-            href="#contact"
-            className="text-sm font-medium px-6 py-2.5 rounded-full border border-border hover:border-accent hover:text-accent transition-all duration-300"
-          >
-            Let's talk
+          <a href="#contact" className="text-xs font-medium px-4 py-2 rounded border border-border hover:border-accent hover:text-accent transition-all">
+            Hire me
           </a>
         </div>
 
-        {/* Mobile toggle */}
-        <button
-          className="md:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5"
-          onClick={() => setMobileOpen(!mobileOpen)}
-        >
-          <span className={`w-5 h-px bg-text transition-all duration-300 ${mobileOpen ? 'rotate-45 translate-y-[3.5px]' : ''}`} />
-          <span className={`w-5 h-px bg-text transition-all duration-300 ${mobileOpen ? '-rotate-45 -translate-y-[3.5px]' : ''}`} />
+        <button className="md:hidden" onClick={() => setMobileOpen(!mobileOpen)}>
+          <div className="w-5 h-px bg-text mb-1.5 transition-all" style={{ transform: mobileOpen ? 'rotate(45deg) translateY(4px)' : '' }} />
+          <div className="w-5 h-px bg-text transition-all" style={{ transform: mobileOpen ? 'rotate(-45deg) translateY(-4px)' : '' }} />
         </button>
       </div>
 
-      {/* Mobile menu */}
       {mobileOpen && (
-        <div className="md:hidden glass mt-2 mx-6 rounded-2xl p-8 animate-fade-in">
-          <div className="flex flex-col gap-6">
+        <div className="md:hidden glass mx-6 mt-2 rounded-lg p-6 animate-fade-in">
+          <div className="flex flex-col gap-4">
             {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={() => setMobileOpen(false)}
-                className="text-lg text-text-secondary hover:text-text transition-colors"
-              >
-                {link.label}
-              </a>
+              <a key={link.href} href={link.href} onClick={() => setMobileOpen(false)} className="text-sm text-text-secondary hover:text-text">{link.label}</a>
             ))}
-            <a
-              href="#contact"
-              onClick={() => setMobileOpen(false)}
-              className="text-center font-medium px-6 py-3 rounded-full border border-accent text-accent"
-            >
-              Let's talk
-            </a>
+            <a href="#contact" onClick={() => setMobileOpen(false)} className="text-sm font-medium px-4 py-2 rounded border border-accent text-accent text-center">Hire me</a>
           </div>
         </div>
       )}

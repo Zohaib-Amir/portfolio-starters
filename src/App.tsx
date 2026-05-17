@@ -1,12 +1,12 @@
 import { useEffect } from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
-import Marquee from './components/Marquee'
-import About from './components/About'
+import Terminal from './components/Terminal'
+import Proof from './components/Proof'
 import Services from './components/Services'
-import Expertise from './components/Expertise'
-import CaseStudies from './components/CaseStudies'
-import CTA from './components/CTA'
+import Stack from './components/Stack'
+import Work from './components/Work'
+import Contact from './components/Contact'
 import Footer from './components/Footer'
 
 function App() {
@@ -14,28 +14,25 @@ function App() {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible')
-          }
+          if (entry.isIntersecting) entry.target.classList.add('visible')
         })
       },
-      { threshold: 0.08, rootMargin: '0px 0px -60px 0px' }
+      { threshold: 0.08, rootMargin: '0px 0px -50px 0px' }
     )
-
-    document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach((el) => observer.observe(el))
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach((el) => observer.observe(el))
     return () => observer.disconnect()
   }, [])
 
   return (
-    <div className="min-h-screen bg-bg text-text grain">
+    <div className="min-h-screen bg-bg text-text scan-line">
       <Navbar />
       <Hero />
-      <Marquee />
-      <About />
+      <Terminal />
+      <Proof />
       <Services />
-      <Expertise />
-      <CaseStudies />
-      <CTA />
+      <Stack />
+      <Work />
+      <Contact />
       <Footer />
     </div>
   )
