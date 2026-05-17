@@ -1,38 +1,18 @@
-import { useEffect } from 'react'
-import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import Proof from './components/Proof'
-import Services from './components/Services'
-import Stack from './components/Stack'
-import Work from './components/Work'
-import Contact from './components/Contact'
-import Footer from './components/Footer'
+import { Routes, Route, Navigate } from 'react-router-dom'
+import Landing from './Landing'
+import V1App from './routes/v1/App'
+import V2App from './routes/v2/App'
+import V3App from './routes/v3/App'
 
 function App() {
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) entry.target.classList.add('visible')
-        })
-      },
-      { threshold: 0.08, rootMargin: '0px 0px -50px 0px' }
-    )
-    document.querySelectorAll('.reveal, .reveal-scale').forEach((el) => observer.observe(el))
-    return () => observer.disconnect()
-  }, [])
-
   return (
-    <div className="min-h-screen bg-bg text-text">
-      <Navbar />
-      <Hero />
-      <Proof />
-      <Services />
-      <Stack />
-      <Work />
-      <Contact />
-      <Footer />
-    </div>
+    <Routes>
+      <Route path="/" element={<Landing />} />
+      <Route path="/v1/*" element={<V1App />} />
+      <Route path="/v2/*" element={<V2App />} />
+      <Route path="/v3/*" element={<V3App />} />
+      <Route path="*" element={<Navigate to="/" replace />} />
+    </Routes>
   )
 }
 
