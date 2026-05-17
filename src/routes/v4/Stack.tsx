@@ -95,18 +95,18 @@ export default function Stack() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {categories.map((cat, i) => (
-            <div key={cat.title} className="card p-5 reveal" style={{ transitionDelay: `${i * 50}ms` }}>
-              <div className="flex items-center gap-2 mb-4">
-                <cat.icon size={14} className="accent-text" />
-                <h3 className="text-sm font-semibold">{cat.title}</h3>
+            <div key={cat.title} className="card p-6 reveal" style={{ transitionDelay: `${i * 50}ms` }}>
+              <div className="flex items-center gap-2 mb-5">
+                <cat.icon size={16} className="accent-text" />
+                <h3 className="text-base font-semibold">{cat.title}</h3>
               </div>
-              <div className="space-y-2">
+              <div className="space-y-3">
                 {cat.items.map(item => (
                   <div key={item.name} className="flex items-center justify-between">
-                    <span className="text-[11px] text-text-secondary">{item.name}</span>
-                    <span className={`text-[10px] font-mono ${levelColor[item.level]}`}>{item.level}</span>
+                    <span className="text-[13px] text-text-secondary">{item.name}</span>
+                    <span className={`text-[11px] font-mono ${levelColor[item.level]}`}>{item.level}</span>
                   </div>
                 ))}
               </div>

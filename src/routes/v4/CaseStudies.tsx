@@ -48,24 +48,24 @@ export default function CaseStudies() {
           <span className="text-[10px] font-mono text-text-muted">Case studies coming soon</span>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {studies.map((s, i) => (
-            <div key={s.title} className="card p-5 reveal group cursor-pointer" style={{ transitionDelay: `${i * 50}ms` }}>
-              <div className="flex items-start justify-between mb-3">
-                <div className="flex items-center gap-2">
-                  <s.icon size={16} className="accent-text" />
-                  <h3 className="text-sm font-semibold group-hover:accent-text transition-colors">{s.title}</h3>
+            <div key={s.title} className="card p-6 reveal group cursor-pointer" style={{ transitionDelay: `${i * 50}ms` }}>
+              <div className="flex items-start justify-between mb-4">
+                <div className="flex items-center gap-3">
+                  <s.icon size={18} className="accent-text" />
+                  <h3 className="text-base font-semibold group-hover:accent-text transition-colors">{s.title}</h3>
                 </div>
-                <ArrowUpRight size={14} className="text-text-muted group-hover:accent-text transition-colors" />
+                <ArrowUpRight size={16} className="text-text-muted group-hover:accent-text transition-colors" />
               </div>
-              <p className="text-[11px] text-text-secondary leading-relaxed mb-3">{s.desc}</p>
+              <p className="text-[13px] text-text-secondary leading-relaxed mb-4">{s.desc}</p>
               <div className="flex items-center justify-between">
-                <div className="flex flex-wrap gap-1">
+                <div className="flex flex-wrap gap-1.5">
                   {s.tags.map(t => (
                     <span key={t} className="tag">{t}</span>
                   ))}
                 </div>
-                <span className="text-[10px] font-mono text-success">{s.status}</span>
+                <span className="text-[11px] font-mono text-success">{s.status}</span>
               </div>
             </div>
           ))}

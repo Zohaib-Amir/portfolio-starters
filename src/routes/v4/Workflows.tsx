@@ -59,13 +59,13 @@ export default function Workflows() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {workflows.map((w, i) => (
-            <div key={w.title} className="card p-5 reveal" style={{ transitionDelay: `${i * 50}ms` }}>
-              <w.icon size={16} className="accent-text mb-3" />
-              <h3 className="text-sm font-semibold mb-1">{w.title}</h3>
-              <p className="text-[11px] text-text-secondary leading-relaxed mb-3">{w.desc}</p>
-              <div className="flex flex-wrap gap-1">
+            <div key={w.title} className="card p-6 reveal" style={{ transitionDelay: `${i * 50}ms` }}>
+              <w.icon size={18} className="accent-text mb-3" />
+              <h3 className="text-base font-semibold mb-2">{w.title}</h3>
+              <p className="text-[13px] text-text-secondary leading-relaxed mb-4">{w.desc}</p>
+              <div className="flex flex-wrap gap-1.5">
                 {w.tags.map(t => (
                   <span key={t} className="tag">{t}</span>
                 ))}
