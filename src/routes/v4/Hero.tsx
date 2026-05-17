@@ -1,7 +1,7 @@
 import {
   Brain, Shield, Zap, Clock, MapPin, Calendar, Star,
   GitBranch, Terminal, Wifi, Fingerprint, Lock, Eye, Sparkles,
-  Boxes, Rocket, HandshakeIcon, ChevronRight, Copy, CheckCircle2, MessageSquare,
+  Rocket, ChevronRight, Copy, CheckCircle2, MessageSquare,
   Workflow, Code2, Globe
 } from 'lucide-react'
 import { useState } from 'react'
@@ -83,7 +83,7 @@ export default function Hero() {
       />
 
       <div className="relative z-10 max-w-6xl mx-auto w-full">
-        {/* === HEADER === */}
+        {/* === HEADER WITH CTAS === */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 mb-8 animate-fade-in opacity-0">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl border border-border bg-surface flex items-center justify-center">
@@ -94,43 +94,49 @@ export default function Hero() {
               <p className="text-xs text-text-muted font-mono">Senior Full-Stack Engineer</p>
             </div>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 flex-wrap">
             <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-border bg-surface">
               <span className="status-dot" />
-              <span className="text-[11px] font-mono text-success">AVAILABLE Q2 2026</span>
+              <span className="text-[11px] font-mono text-success">AVAILABLE Q2</span>
             </div>
             <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-border bg-surface text-[11px] text-text-muted font-mono">
               <Clock size={11} />
               <span>GMT+5</span>
             </div>
+            <button
+              onClick={copyEmail}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-border hover:border-accent transition-colors text-[11px] font-medium"
+            >
+              {copied ? <CheckCircle2 size={12} className="text-success" /> : <Copy size={12} />}
+              {copied ? 'Copied' : 'Email'}
+            </button>
+            <a
+              href="https://cal.com/zohaibamir"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-accent text-bg hover:bg-accent-dim transition-colors text-[11px] font-medium"
+            >
+              <Calendar size={12} />
+              Book Call
+            </a>
           </div>
         </div>
 
         {/* === MAIN BENTO === */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
 
-          {/* PROFILE + VALUE PROP — 8 cols */}
+          {/* VALUE PROP — 8 cols */}
           <div className="md:col-span-8 card p-6 md:p-8 animate-fade-up opacity-0 delay-100">
-            <div className="flex items-start gap-5 mb-5">
-              {/* Avatar */}
-              <div className="shrink-0 w-20 h-20 rounded-2xl bg-surface-raised border-2 border-accent/20 flex items-center justify-center overflow-hidden">
-                <div className="w-full h-full bg-accent/5 flex items-center justify-center">
-                  <span className="text-3xl font-bold accent-text font-mono">ZA</span>
-                </div>
-              </div>
-              <div className="flex-1 min-w-0">
-                <p className="text-[11px] font-mono text-text-muted uppercase tracking-widest mb-2">About</p>
-                <h1 className="text-[clamp(1.5rem,3.5vw,2.5rem)] font-extrabold leading-[1.1] tracking-tight mb-3">
-                  I build <span className="accent-text">AI-powered</span> products<br />
-                  and embed into teams as <span className="accent-text">senior staff</span>.
-                </h1>
-                <p className="text-sm text-text-secondary leading-relaxed max-w-xl">
-                  TypeScript, React, React Native, Node.js, Python. I design architectures,
-                  ship features, and integrate LLMs — from prototype to production.
-                  Remote-first. Async-native. Security-conscious.
-                </p>
-              </div>
-            </div>
+            <p className="text-[11px] font-mono text-text-muted uppercase tracking-widest mb-3">About</p>
+            <h1 className="text-[clamp(1.6rem,3.5vw,2.6rem)] font-extrabold leading-[1.1] tracking-tight mb-4">
+              I build <span className="accent-text">AI-powered</span> products<br />
+              and embed into teams as <span className="accent-text">senior staff</span>.
+            </h1>
+            <p className="text-sm text-text-secondary leading-relaxed max-w-xl mb-5">
+              TypeScript, React, React Native, Node.js, Python. I design architectures,
+              ship features, and integrate LLMs — from prototype to production.
+              Remote-first. Async-native. Security-conscious.
+            </p>
             <div className="flex flex-wrap gap-2">
               <Tag accent>Staff Augmentation</Tag>
               <Tag accent>Freelance</Tag>
@@ -143,54 +149,23 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* AVAILABILITY + CONTACT — 4 cols */}
-          <div className="md:col-span-4 card p-6 animate-fade-up opacity-0 delay-200">
-            <p className="text-[11px] font-mono text-text-muted uppercase tracking-widest mb-5">Availability</p>
-            <div className="flex items-center gap-2 mb-5">
-              <span className="status-dot" />
-              <span className="text-base font-semibold">Open for Q2 2026</span>
-            </div>
-            <div className="space-y-3 mb-5">
-              <div className="flex items-center justify-between text-sm py-2 border-b border-border">
-                <span className="text-text-secondary flex items-center gap-2">
-                  <HandshakeIcon size={14} /> Staff augmentation
-                </span>
-                <span className="font-mono text-success text-[11px]">● AVAILABLE</span>
-              </div>
-              <div className="flex items-center justify-between text-sm py-2 border-b border-border">
-                <span className="text-text-secondary flex items-center gap-2">
-                  <Boxes size={14} /> Freelance projects
-                </span>
-                <span className="font-mono text-success text-[11px]">● AVAILABLE</span>
-              </div>
-              <div className="flex items-center justify-between text-sm py-2">
-                <span className="text-text-secondary flex items-center gap-2">
-                  <Brain size={14} /> AI consulting
-                </span>
-                <span className="font-mono text-success text-[11px]">● AVAILABLE</span>
+          {/* BRAND CARD — 4 cols */}
+          <div className="md:col-span-4 card p-6 animate-fade-up opacity-0 delay-200 flex flex-col items-center text-center">
+            <div className="w-24 h-24 rounded-2xl bg-surface-raised border-2 border-accent/20 flex items-center justify-center overflow-hidden mb-4">
+              <div className="w-full h-full bg-accent/5 flex items-center justify-center">
+                <span className="text-4xl font-bold accent-text font-mono">ZA</span>
               </div>
             </div>
-            <div className="space-y-2.5">
-              <button
-                onClick={copyEmail}
-                className="w-full flex items-center justify-center gap-2 text-sm font-medium px-4 py-3 rounded-xl bg-accent text-bg hover:bg-accent-dim transition-colors"
-              >
-                {copied ? <CheckCircle2 size={15} /> : <Copy size={15} />}
-                {copied ? 'Copied!' : 'Copy Email'}
-              </button>
-              <a
-                href="https://cal.com/zohaibamir"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full flex items-center justify-center gap-2 text-sm font-medium px-4 py-3 rounded-xl border border-border hover:border-accent transition-colors text-center"
-              >
-                <Calendar size={15} />
-                Book 30-min Call
-              </a>
+            <p className="text-lg font-bold mb-1">Zohaib Amir</p>
+            <p className="text-sm text-text-secondary mb-4">Full-Stack Engineer & Technical Founder</p>
+            <div className="flex flex-wrap justify-center gap-2">
+              <Tag>7+ Years</Tag>
+              <Tag>30+ Products</Tag>
+              <Tag>3 Continents</Tag>
             </div>
           </div>
 
-          {/* WHAT CLIENTS GET — replaces stack charts, 8 cols */}
+          {/* WHAT CLIENTS GET — 8 cols */}
           <div className="md:col-span-8 card p-6 animate-fade-up opacity-0 delay-300">
             <div className="flex items-center gap-2 mb-5">
               <Star size={16} className="accent-text" />

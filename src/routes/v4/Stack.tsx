@@ -4,82 +4,34 @@ const categories = [
   {
     icon: Code2,
     title: 'Frontend',
-    items: [
-      { name: 'React / Next.js', level: 'Expert' },
-      { name: 'TypeScript', level: 'Expert' },
-      { name: 'Tailwind CSS', level: 'Expert' },
-      { name: 'React Native / Expo', level: 'Expert' },
-      { name: 'TanStack Query', level: 'Advanced' },
-      { name: 'Zustand / Jotai', level: 'Advanced' },
-    ]
+    items: ['React / Next.js', 'TypeScript', 'Tailwind CSS', 'React Native / Expo', 'TanStack Query', 'Zustand / Jotai']
   },
   {
     icon: Server,
     title: 'Backend',
-    items: [
-      { name: 'Node.js / Express', level: 'Expert' },
-      { name: 'Fastify / tRPC', level: 'Advanced' },
-      { name: 'Python / FastAPI', level: 'Advanced' },
-      { name: 'GraphQL', level: 'Advanced' },
-      { name: 'WebSockets', level: 'Advanced' },
-      { name: 'BullMQ / Redis', level: 'Advanced' },
-    ]
+    items: ['Node.js / Express', 'Fastify / tRPC', 'Python / FastAPI', 'GraphQL', 'WebSockets', 'BullMQ / Redis']
   },
   {
     icon: Database,
     title: 'Data',
-    items: [
-      { name: 'PostgreSQL', level: 'Expert' },
-      { name: 'Prisma / Drizzle', level: 'Expert' },
-      { name: 'MongoDB', level: 'Advanced' },
-      { name: 'Redis', level: 'Advanced' },
-      { name: 'ClickHouse', level: 'Intermediate' },
-      { name: 'pgvector', level: 'Advanced' },
-    ]
+    items: ['PostgreSQL', 'Prisma / Drizzle', 'MongoDB', 'Redis', 'ClickHouse', 'pgvector']
   },
   {
     icon: Cloud,
     title: 'Infrastructure',
-    items: [
-      { name: 'Cloudflare Workers', level: 'Expert' },
-      { name: 'Vercel / Netlify', level: 'Expert' },
-      { name: 'Docker', level: 'Advanced' },
-      { name: 'GitHub Actions', level: 'Advanced' },
-      { name: 'AWS (S3, Lambda)', level: 'Intermediate' },
-      { name: 'Terraform', level: 'Intermediate' },
-    ]
+    items: ['Cloudflare Workers', 'Vercel / Netlify', 'Docker', 'GitHub Actions', 'AWS (S3, Lambda)', 'Terraform']
   },
   {
     icon: Brain,
     title: 'AI / ML',
-    items: [
-      { name: 'OpenAI API', level: 'Expert' },
-      { name: 'LangChain / LCEL', level: 'Advanced' },
-      { name: 'RAG Pipelines', level: 'Advanced' },
-      { name: 'Vector Stores', level: 'Advanced' },
-      { name: 'HuggingFace', level: 'Intermediate' },
-      { name: 'Ollama / Local LLMs', level: 'Intermediate' },
-    ]
+    items: ['OpenAI API', 'LangChain / LCEL', 'RAG Pipelines', 'Vector Stores', 'HuggingFace', 'Ollama / Local LLMs']
   },
   {
     icon: Wrench,
     title: 'Tools',
-    items: [
-      { name: 'Git / GitHub', level: 'Expert' },
-      { name: 'Figma (read)', level: 'Advanced' },
-      { name: 'Linear / Jira', level: 'Advanced' },
-      { name: 'Notion / Obsidian', level: 'Advanced' },
-      { name: 'Postman / Hoppscotch', level: 'Advanced' },
-      { name: 'Sentry / Datadog', level: 'Intermediate' },
-    ]
+    items: ['Git / GitHub', 'Figma', 'Linear / Jira', 'Notion / Obsidian', 'Postman / Hoppscotch', 'Sentry / Datadog']
   }
 ]
-
-const levelColor: Record<string, string> = {
-  Expert: 'text-accent',
-  Advanced: 'text-text',
-  Intermediate: 'text-text-secondary'
-}
 
 export default function Stack() {
   return (
@@ -102,12 +54,11 @@ export default function Stack() {
                 <cat.icon size={16} className="accent-text" />
                 <h3 className="text-base font-semibold">{cat.title}</h3>
               </div>
-              <div className="space-y-3">
+              <div className="flex flex-wrap gap-2">
                 {cat.items.map(item => (
-                  <div key={item.name} className="flex items-center justify-between">
-                    <span className="text-[13px] text-text-secondary">{item.name}</span>
-                    <span className={`text-[11px] font-mono ${levelColor[item.level]}`}>{item.level}</span>
-                  </div>
+                  <span key={item} className="inline-flex items-center px-3 py-1.5 rounded-lg bg-surface-raised border border-border text-[13px] text-text-secondary">
+                    {item}
+                  </span>
                 ))}
               </div>
             </div>
