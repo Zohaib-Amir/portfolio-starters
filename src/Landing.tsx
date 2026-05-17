@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import { ArrowRight, Sparkles, Terminal, LayoutDashboard } from 'lucide-react'
+import { ArrowRight, Sparkles, Terminal, LayoutDashboard, User } from 'lucide-react'
 
 const versions = [
   {
@@ -26,6 +26,14 @@ const versions = [
     color: 'from-amber-500/10 to-orange-500/10',
     accent: '#f59e0b',
   },
+  {
+    id: 'v4',
+    name: 'Developer',
+    desc: 'Amber accent, workflow-focused, stack depth, specializations. Expertise-first.',
+    icon: User,
+    color: 'from-amber-500/10 to-orange-500/10',
+    accent: '#f59e0b',
+  },
 ]
 
 export default function Landing() {
@@ -42,7 +50,7 @@ export default function Landing() {
         </p>
       </div>
 
-      <div className="grid md:grid-cols-3 gap-4 max-w-4xl w-full">
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl w-full">
         {versions.map((v) => (
           <button
             key={v.id}
