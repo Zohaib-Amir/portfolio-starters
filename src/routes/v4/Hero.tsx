@@ -1,6 +1,6 @@
 import {
   Brain, Shield, Clock, MapPin, Calendar, Star, Trophy, Timer, MessageCircle, Users,
-  Wifi, Fingerprint, Lock, Sparkles,
+  Wifi, Fingerprint, Lock, Sparkles, ArrowRight,
   Rocket, ChevronRight, Copy, CheckCircle2, MessageSquare,
   Code2, Globe
 } from 'lucide-react'
@@ -316,6 +316,43 @@ export default function Hero() {
           <span className="flex items-center gap-1.5"><MessageSquare size={13} /> Async-first</span>
           <span className="flex items-center gap-1.5"><CheckCircle2 size={13} className="text-success" /> Same-day response</span>
           <span className="flex items-center gap-1.5"><Shield size={13} /> Security-reviewed code</span>
+        </div>
+
+        {/* === PROCESS TIMELINE — full width === */}
+        <div className="mt-8 card p-6 md:p-8 animate-fade-up opacity-0 delay-700">
+          <div className="flex items-center gap-2 mb-6">
+            <Timer size={16} className="accent-text" />
+            <p className="text-[11px] font-mono text-text-muted uppercase tracking-widest">How We Work Together</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
+            {[
+              { week: 'Week 1', title: 'Embed', desc: 'Slack access, repo setup, architecture review, first PR merged' },
+              { week: 'Week 2-3', title: 'Ship', desc: 'Core features built, AI integration wired, CI/CD running' },
+              { week: 'Week 4', title: 'Harden', desc: 'Security audit, perf optimization, error handling, docs' },
+              { week: 'Week 5-6', title: 'Launch', desc: 'Production deploy, monitoring, handoff docs, team training' },
+              { week: 'Ongoing', title: 'Support', desc: 'Retainer for fixes, new features, architecture guidance' },
+            ].map((step, i, arr) => (
+              <div key={step.week} className="relative">
+                <div className="p-4 rounded-xl bg-surface-raised/50 border border-border h-full">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="text-[10px] font-mono accent-text">{step.week}</span>
+                    {i < arr.length - 1 && (
+                      <ArrowRight size={12} className="text-text-muted hidden md:block" />
+                    )}
+                  </div>
+                  <p className="text-sm font-semibold mb-1">{step.title}</p>
+                  <p className="text-[13px] text-text-secondary leading-relaxed">{step.desc}</p>
+                </div>
+                {i < arr.length - 1 && (
+                  <div className="hidden md:block absolute -right-2 top-1/2 -translate-y-1/2 z-10">
+                    <div className="w-4 h-4 rounded-full bg-surface border border-accent/30 flex items-center justify-center">
+                      <ArrowRight size={10} className="accent-text" />
+                    </div>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
