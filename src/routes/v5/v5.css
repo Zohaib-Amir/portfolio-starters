@@ -1,0 +1,6 @@
+/* v5 - Violet accent */
+.v5-scope {
+  --color-accent: #8b5cf6;
+  --color-accent-dim: #7c3aed;
+  --color-accent-glow: rgba(139, 92, 246, 0.08);
+}
