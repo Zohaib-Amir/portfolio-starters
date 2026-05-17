@@ -1,8 +1,8 @@
 import {
-  Brain, Shield, Zap, Clock, MapPin, Calendar, Star,
-  GitBranch, Terminal, Wifi, Fingerprint, Lock, Eye, Sparkles,
+  Brain, Shield, Clock, MapPin, Calendar, Star, Trophy, Timer, MessageCircle, Users,
+  Wifi, Fingerprint, Lock, Sparkles,
   Rocket, ChevronRight, Copy, CheckCircle2, MessageSquare,
-  Workflow, Code2, Globe
+  Code2, Globe
 } from 'lucide-react'
 import { useState } from 'react'
 
@@ -255,28 +255,53 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* DEVELOPMENT WORKFLOW — 8 cols */}
+          {/* WHY ME — 8 cols, dense proof points */}
           <div className="md:col-span-8 card p-6 animate-fade-up opacity-0 delay-500">
-            <div className="flex items-center justify-between mb-5">
-              <div className="flex items-center gap-2">
-                <Workflow size={16} className="accent-text" />
-                <p className="text-[11px] font-mono text-text-muted uppercase tracking-widest">Development Workflow</p>
-              </div>
-              <Tag accent>TypeScript-First</Tag>
+            <div className="flex items-center gap-2 mb-5">
+              <Trophy size={16} className="accent-text" />
+              <p className="text-[11px] font-mono text-text-muted uppercase tracking-widest">Why Me</p>
             </div>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-              {[
-                { icon: GitBranch, label: 'Git Flow', detail: 'Feature branches, semantic commits, PR templates' },
-                { icon: Terminal, label: 'CI/CD', detail: 'GitHub Actions, automated tests, preview deploys' },
-                { icon: Eye, label: 'Code Review', detail: 'Architecture reviews, security audits, perf checks' },
-                { icon: Zap, label: 'Ship Fast', detail: 'Daily deploys, feature flags, rollback ready' },
-              ].map(({ icon: Icon, label, detail }) => (
-                <div key={label} className="p-4 rounded-xl bg-surface-raised/50 border border-border">
-                  <Icon size={18} className="accent-text mb-3" />
-                  <p className="text-sm font-semibold mb-1">{label}</p>
-                  <p className="text-[13px] text-text-secondary leading-relaxed">{detail}</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="p-4 rounded-xl bg-surface-raised/50 border border-border">
+                <div className="flex items-center gap-2 mb-2">
+                  <Timer size={16} className="accent-text" />
+                  <p className="text-sm font-semibold">Ships in Weeks, Not Months</p>
                 </div>
-              ))}
+                <p className="text-[13px] text-text-secondary leading-relaxed">
+                  MVP to production in 4-6 weeks. I cut scope intelligently and ship iteratively.
+                  No boilerplate sprints. Every commit moves the needle.
+                </p>
+              </div>
+              <div className="p-4 rounded-xl bg-surface-raised/50 border border-border">
+                <div className="flex items-center gap-2 mb-2">
+                  <MessageCircle size={16} className="accent-text" />
+                  <p className="text-sm font-semibold">Over-Communicates by Default</p>
+                </div>
+                <p className="text-[13px] text-text-secondary leading-relaxed">
+                  Daily standups, weekly Loom demos, async RFCs for architecture.
+                  You always know what is being built and why.
+                </p>
+              </div>
+              <div className="p-4 rounded-xl bg-surface-raised/50 border border-border">
+                <div className="flex items-center gap-2 mb-2">
+                  <Users size={16} className="accent-text" />
+                  <p className="text-sm font-semibold">Embedded Team Member</p>
+                </div>
+                <p className="text-[13px] text-text-secondary leading-relaxed">
+                  Joins your Slack, attends standups, reviews PRs. Not a black-box contractor —
+                  a senior engineer who happens to be remote.
+                </p>
+              </div>
+              <div className="p-4 rounded-xl bg-surface-raised/50 border border-border">
+                <div className="flex items-center gap-2 mb-2">
+                  <Shield size={16} className="accent-text" />
+                  <p className="text-sm font-semibold">Owns the Hard Stuff</p>
+                </div>
+                <p className="text-[13px] text-text-secondary leading-relaxed">
+                  Auth, real-time sync, AI pipelines, security audits — I take on the pieces
+                  most developers avoid and deliver them production-ready.
+                </p>
+              </div>
             </div>
             <div className="mt-4 p-4 rounded-xl bg-surface-raised/30 border border-border font-mono text-xs text-text-muted overflow-x-auto">
               <span className="text-accent">$</span> git commit -m "feat: add RAG pipeline with pgvector" <span className="text-text-muted">&&</span> gh pr create <span className="text-text-muted">--fill</span> <span className="text-text-muted">&&</span> vercel --prod
