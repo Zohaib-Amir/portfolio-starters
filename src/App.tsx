@@ -1,7 +1,6 @@
 import { useEffect } from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
-import Terminal from './components/Terminal'
 import Proof from './components/Proof'
 import Services from './components/Services'
 import Stack from './components/Stack'
@@ -19,15 +18,14 @@ function App() {
       },
       { threshold: 0.08, rootMargin: '0px 0px -50px 0px' }
     )
-    document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach((el) => observer.observe(el))
+    document.querySelectorAll('.reveal, .reveal-scale').forEach((el) => observer.observe(el))
     return () => observer.disconnect()
   }, [])
 
   return (
-    <div className="min-h-screen bg-bg text-text scan-line">
+    <div className="min-h-screen bg-bg text-text">
       <Navbar />
       <Hero />
-      <Terminal />
       <Proof />
       <Services />
       <Stack />

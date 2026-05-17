@@ -23,7 +23,7 @@ export default function Contact() {
               </p>
             </div>
 
-            <div className="flex flex-col gap-5">
+            <div className="flex flex-col gap-4">
               <a
                 href="mailto:contact@zohaibamir.com"
                 className="group flex items-center gap-4 p-5 rounded-lg border border-border hover:border-accent transition-all duration-300"
@@ -32,7 +32,7 @@ export default function Contact() {
                   <Mail size={16} />
                 </div>
                 <div className="flex-1">
-                  <p className="text-xs text-text-muted font-mono mb-0.5">EMAIL</p>
+                  <p className="text-[11px] text-text-muted font-mono mb-0.5">EMAIL</p>
                   <p className="text-sm font-medium">contact@zohaibamir.com</p>
                 </div>
                 <ArrowUpRight size={16} className="text-text-muted group-hover:text-accent transition-colors" />
@@ -48,16 +48,14 @@ export default function Contact() {
                   <Calendar size={16} />
                 </div>
                 <div className="flex-1">
-                  <p className="text-xs text-text-muted font-mono mb-0.5">CALENDAR</p>
+                  <p className="text-[11px] text-text-muted font-mono mb-0.5">CALENDAR</p>
                   <p className="text-sm font-medium">Book a 30-min call</p>
                 </div>
                 <ArrowUpRight size={16} className="text-text-muted group-hover:text-accent transition-colors" />
               </a>
 
               <div className="flex items-center gap-5 text-xs text-text-muted pt-2">
-                <span className="flex items-center gap-1.5">
-                  <MapPin size={12} /> Lahore, PKT
-                </span>
+                <span className="flex items-center gap-1.5"><MapPin size={12} /> Lahore, PKT</span>
                 <span>GMT+5</span>
                 <span>Async-first</span>
                 <span>Same-day response</span>
