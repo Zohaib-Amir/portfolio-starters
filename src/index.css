@@ -107,8 +107,13 @@ body {
 }
 
 @keyframes pulse-accent {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(232, 255, 71, 0.3); }
-  50% { box-shadow: 0 0 0 8px rgba(232, 255, 71, 0); }
+  0%, 100% { box-shadow: 0 0 0 0 var(--color-accent-glow); }
+  50% { box-shadow: 0 0 0 8px transparent; }
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 var(--color-accent-glow); }
+  50% { opacity: 0.8; box-shadow: 0 0 0 6px transparent; }
 }
 
 @keyframes draw-line {
@@ -301,6 +306,38 @@ body {
   position: absolute;
   pointer-events: none;
 }
+
+.animate-pulse-dot {
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-success);
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  transition: border-color 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.card:hover {
+  border-color: var(--color-accent-glow);
+  transform: translateY(-2px);
+}
+
+.bar {
+  display: inline-block;
+  border-radius: 2px;
+  background: var(--color-accent);
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+.bar:hover { opacity: 1; }
 
 /* Diagonal clip */
 .diagonal-clip {

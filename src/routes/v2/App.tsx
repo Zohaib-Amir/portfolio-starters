@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import './v2.css'
 import Navbar from './Navbar'
 import Hero from './Hero'
 import Terminal from './Terminal'
@@ -24,7 +25,7 @@ function App() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-bg text-text scan-line">
+    <div className="v2-scope min-h-screen bg-bg text-text scan-line">
       <Navbar />
       <Hero />
       <Terminal />

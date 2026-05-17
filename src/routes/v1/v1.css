@@ -1,0 +1,6 @@
+/* v1 - Lime accent */
+.v1-scope {
+  --color-accent: #e8ff47;
+  --color-accent-dim: #c8e030;
+  --color-accent-glow: rgba(232, 255, 71, 0.08);
+}

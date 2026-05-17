@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import './v3.css'
 import Navbar from './Navbar'
 import Hero from './Hero'
 import Proof from './Proof'
@@ -23,7 +24,7 @@ function App() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-bg text-text">
+    <div className="v3-scope min-h-screen bg-bg text-text">
       <Navbar />
       <Hero />
       <Proof />

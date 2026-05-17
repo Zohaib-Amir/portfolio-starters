@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router-dom'
+import './v4.css'
 import Hero from './Hero'
 import Workflows from './Workflows'
 import Stack from './Stack'
@@ -8,7 +9,7 @@ import Footer from './Footer'
 
 function V4App() {
   return (
-    <div className="min-h-screen bg-bg text-text">
+    <div className="v4-scope min-h-screen bg-bg text-text">
       <Hero />
       <Workflows />
       <Stack />

@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import './v1.css'
 import Navbar from './Navbar'
 import Hero from './Hero'
 import Marquee from './Marquee'
@@ -27,7 +28,7 @@ function App() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-bg text-text grain">
+    <div className="v1-scope min-h-screen bg-bg text-text grain">
       <Navbar />
       <Hero />
       <Marquee />
