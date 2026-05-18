@@ -5,6 +5,7 @@ import V2App from './routes/v2/App'
 import V3App from './routes/v3/App'
 import V4App from './routes/v4/App'
 import V5App from './routes/v5/App'
+import V6App from './routes/v6/App'
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Route path="/v3/*" element={<V3App />} />
       <Route path="/v4/*" element={<V4App />} />
       <Route path="/v5/*" element={<V5App />} />
+      <Route path="/v6/*" element={<V6App />} />
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   )

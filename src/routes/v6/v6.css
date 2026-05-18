@@ -1,0 +1,6 @@
+/* v6 - Amber accent (same as v3, reiteration) */
+.v6-scope {
+  --color-accent: #f59e0b;
+  --color-accent-dim: #d97706;
+  --color-accent-glow: rgba(245, 158, 11, 0.08);
+}

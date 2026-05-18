@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import { ArrowRight, Sparkles, Terminal, LayoutDashboard, User, Palette } from 'lucide-react'
+import { ArrowRight, Sparkles, Terminal, LayoutDashboard, User, Palette, Gauge } from 'lucide-react'
 
 const versions = [
   {
@@ -42,6 +42,14 @@ const versions = [
     color: 'from-violet-500/10 to-purple-500/10',
     accent: '#8b5cf6',
   },
+  {
+    id: 'v6',
+    name: 'Upwork Pro',
+    desc: 'Amber accent, Upwork stats, brand card, case studies first. Credibility-first.',
+    icon: Gauge,
+    color: 'from-amber-500/10 to-orange-500/10',
+    accent: '#f59e0b',
+  },
 ]
 
 export default function Landing() {
@@ -54,11 +62,11 @@ export default function Landing() {
           Portfolio <span className="accent-text">Versions</span>
         </h1>
         <p className="text-text-secondary text-sm">
-          Three approaches to the same goal. Pick the one that resonates.
+          Multiple approaches to the same goal. Pick the one that resonates.
         </p>
       </div>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-4 max-w-6xl w-full">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl w-full">
         {versions.map((v) => (
           <button
             key={v.id}
